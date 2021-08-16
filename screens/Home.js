@@ -2,30 +2,153 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import { View, Text, StyleSheet, Image, SafeAreaView, ScrollView, FlatList } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, FlatList } from 'react-native';
 import { COLORS, images, icons } from '../contants';
 
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Material from 'react-native-vector-icons/MaterialCommunityIcons';
 import Entypo from 'react-native-vector-icons/Entypo';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import Feather from 'react-native-vector-icons/Feather';
 
 import Swiper from 'react-native-swiper';
 import LinearGradient from 'react-native-linear-gradient';
 
+const DATA = [
+    {
+        id: '1',
+        name: 'Hot Soya Milk',
+        price: '39.500 đ',
+        image: 'https://soyagarden.com/content/uploads/2020/11/DSC_9683-737x1024.jpg',
+    },
+    {
+        id: '2',
+        name: 'Hot Chocolate Latte',
+        price: '35.000 đ',
+        image: 'https://soyagarden.com/content/uploads/2020/11/DSC_9613-712x1024.jpg',
+    },
+    {
+        id: '3',
+        name: 'Hot Black Tea',
+        price: '35.000 đ',
+        image: 'https://soyagarden.com/content/uploads/2020/11/DSC_9652-664x1024.jpg',
+    },
+    {
+        id: '4',
+        name: 'Ribbed Combo Sweater',
+        price: '35.000 đ',
+        image: 'https://soyagarden.com/content/uploads/2019/12/28122019_SOYA4933-683x1024.jpg',
+    },
+];
+const DATA1 = [
+    {
+        id: '1',
+        name: 'Voucher giảm giá 40.000đ',
+        price: '30 S-Point',
+        image: 'https://soyagarden.com/content/uploads/2020/12/z2253425214787_26a3753be9ab7a8555d37cf0678e3b60-768x1026.jpg',
+    },
+    {
+        id: '2',
+        name: 'Voucher giảm giá 30.000đ',
+        price: '25 S-Point',
+        image: 'https://soyagarden.com/content/uploads/2020/01/li-xi-1024x577.jpg',
+    },
+    {
+        id: '3',
+        name: 'Voucher giảm giá 20.000đ',
+        price: '20 S-Point',
+        image: 'https://soyagarden.com/content/uploads/2019/11/9fc6e8d81f97e6c9bf86.jpg',
+    },
+    {
+        id: '4',
+        name: 'Voucher giảm giá 10.000đ',
+        price: '10 S-Point',
+        image: 'https://soyagarden.com/content/uploads/2019/11/73504788_3195986220476346_6528997133469614080_o.jpg',
+    },
+];
+
+const DATA2 = [
+    {
+        id: '1',
+        name: 'BST MÙA ĐÔNG 2020 | ĐỘC THÂN ẤM ÁP VỚI CHÚT NGỌT CỦA “DEAR WINTER”',
+        image: 'https://soyagarden.com/content/uploads/2020/11/DSC_9722-1024x723.jpg',
+    },
+    {
+        id: '2',
+        name: 'ĐẾN VƯỜN ĐẬU THỬ SOYA JELLY-O MỚI – KIM BÀI MIỄN DỊCH TUYỆT VỜI, CHỈ 29K',
+        image: 'https://soyagarden.com/content/uploads/2020/03/3bd7b9c6e1041a5a4315-1024x460.jpg',
+    },
+    {
+        id: '3',
+        name: 'HỌC TIẾNG ANH PHẤN KHÍCH CÙNG SOYA GARDEN VÀ ENGLISHNOW',
+        image: 'https://soyagarden.com/content/uploads/2020/09/118649411_4295276030547354_6614295648694420106_n.jpg',
+    },
+    {
+        id: '4',
+        name: 'BỘ SƯU TẬP “FESTIVE SPECIALS” TỪ SOYA GARDEN',
+        image: 'https://soyagarden.com/content/uploads/2019/11/bst-web3-1024x576.jpg',
+        },
+];
+
 const Home = () => {
+    const Name = ({ name }) => (
+		<View style={{flex: 1, width: 250}}>
+			<Text style={{ fontSize: 16, paddingLeft: 15, fontWeight: 'bold' }}>{name}</Text>
+		</View>
+	);
+    const Price = ({ price }) => (
+		<View style={{flex: 1, paddingBottom: 10}}>
+			<Text style={{ fontSize: 14, paddingLeft: 15, color: 'gray'}}>{price}</Text>
+		</View>
+	);
+    const renderItem = ({item}) => (
+        <View style={{height: 225}}>
+            <View style={{height: 170 }}>
+                <Image
+                style={{
+                    width: 250,
+                    flex: 1,
+                    margin: 10,
+                    marginTop: 0,
+                    borderRadius: 15,
+                }}
+                source={{uri: item.image}}
+            />
+            </View>
+            <Name name={item.name} />
+			<Price price={item.price} />
+        </View>
+    );
+    const renderNew = ({item}) => (
+        <View style={{height: 250}}>
+            <View style={{height: 170 }}>
+                <Image
+                style={{
+                    width: 250,
+                    flex: 1,
+                    margin: 10,
+                    marginTop: 0,
+                    borderRadius: 15,
+                }}
+                source={{uri: item.image}}
+            />
+            </View>
+            <Name name={item.name} />
+        </View>
+    );
     return (
         <View style={styles.Container}>
             <LinearGradient colors={['#fed734', '#fedd52', '#D8D8D8']} style={styles.Header}>
                 <View style={styles.User}>
                     <View style={styles.Avt}>
                         <Image
-                        source={images.avatar_5}
-                        resizeMode="contain"
-                        style={{
-                            width: 45,
-                            height: 45,
-                        }}
-                    />
+                            source={images.avatar_5}
+                            resizeMode="contain"
+                            style={{
+                                width: 45,
+                                height: 45,
+                            }}
+                        />
                     </View>
                     <View style={styles.Info}>
                         <Text style={{fontSize: 20, fontWeight: 'bold'}}>Minh Gol</Text>
@@ -121,131 +244,67 @@ const Home = () => {
                             <Text style={styles.ListText}>Gợi ý cho bạn</Text>
                             <Entypo style={{paddingTop: 10}} name="chevron-small-right" size={30} color="gray" />
                         </View>
-                        <Swiper flex={1} style={styles.wrapperList} showsButtons={false}>
-                            <View style={styles.SlideL}>
-                                <Image
-                                style={styles.SlideImgList}
-                                source={{
-                                    uri: 'https://soyagarden.com/content/uploads/2020/11/DSC_9683.jpg',
-                                }}
-                                />
-                                <Text style={styles.Name}>Voucher/Khuyến mãi</Text>
-                                <Text style={styles.Price}>Voucher/Khuyến mãi</Text>
-                            </View>
-                            <View style={styles.SlideL}>
-                                <Image
-                                style={styles.SlideImgList}
-                                source={{
-                                    uri: 'https://soyagarden.com/content/uploads/2020/11/DSC_9613.jpg',
-                                }}
-                                />
-                            </View>
-                            <View style={styles.SlideL}>
-                                <Image
-                                style={styles.SlideImgList}
-                                source={{
-                                    uri: 'https://soyagarden.com/content/uploads/2019/12/28122019_SOYA1675.jpg',
-                                }}
-                                />
-                            </View>
-                            <View style={styles.slide1}>
-                                <Image
-                                style={styles.SlideImgList}
-                                source={{
-                                    uri: 'https://soyagarden.com/content/uploads/2020/09/DSC_7889.jpg',
-                                }}
-                                />
-                            </View>
-                        </Swiper>
+                        <FlatList
+                            data={DATA}
+                            renderItem={renderItem}
+                            keyExtractor={item => item.id}
+                            horizontal={true}
+                        />
                     </View>
                     <View style={styles.List}>
                         <View style={styles.ListTitle}>
                             <Text style={styles.ListText}>Voucher/Khuyến mãi</Text>
                             <Entypo style={{paddingTop: 10}} name="chevron-small-right" size={30} color="gray" />
                         </View>
-                        <Swiper flex={1} style={styles.wrapperList} showsButtons={false}>
-                            <View style={styles.SlideL}>
-                                <Image
-                                style={styles.SlideImgList}
-                                source={{
-                                    uri: 'https://soyagarden.com/content/uploads/2021/04/banner-web.jpg',
-                                }}
-                                />
-                                <Text style={styles.Name}>Voucher/Khuyến mãi</Text>
-                                <Text style={styles.Price}>Voucher/Khuyến mãi</Text>
-                            </View>
-                            <View style={styles.SlideL}>
-                                <Image
-                                style={styles.SlideImgList}
-                                source={{
-                                    uri: 'https://soyagarden.com/content/uploads/2020/01/web-2-1-2020-1024x460.jpg',
-                                }}
-                                />
-                            </View>
-                            <View style={styles.SlideL}>
-                                <Image
-                                style={styles.SlideImgList}
-                                source={{
-                                    uri: 'https://soyagarden.com/content/uploads/2019/09/Soyal-Garden21721-e1568393821340.jpg',
-                                }}
-                                />
-                            </View>
-                            <View style={styles.slide1}>
-                                <Image
-                                style={styles.SlideImgList}
-                                source={{
-                                    uri: 'https://soyagarden.com/content/uploads/2020/03/3bd7b9c6e1041a5a4315.jpg',
-                                }}
-                                />
-                            </View>
-                        </Swiper>
+                        <FlatList
+                            data={DATA1}
+                            renderItem={renderItem}
+                            keyExtractor={item => item.id}
+                            horizontal={true}
+                        />
                     </View>
                     <View style={styles.List}>
                         <View style={styles.ListTitle}>
                             <Text style={styles.ListText}>Tin tức</Text>
                             <Entypo style={{paddingTop: 10}} name="chevron-small-right" size={30} color="gray" />
                         </View>
-                        <Swiper flex={1} style={styles.wrapperList} showsButtons={false}>
-                            <View style={styles.SlideL}>
-                                <Image
-                                style={styles.SlideImgList}
-                                source={{
-                                    uri: 'https://soyagarden.com/content/uploads/2021/04/banner-web.jpg',
-                                }}
-                                />
-                                <Text style={styles.Name}>Voucher/Khuyến mãi</Text>
-                                <Text style={styles.Price}>Voucher/Khuyến mãi</Text>
-                            </View>
-                            <View style={styles.SlideL}>
-                                <Image
-                                style={styles.SlideImgList}
-                                source={{
-                                    uri: 'https://soyagarden.com/content/uploads/2020/01/web-2-1-2020-1024x460.jpg',
-                                }}
-                                />
-                            </View>
-                            <View style={styles.SlideL}>
-                                <Image
-                                style={styles.SlideImgList}
-                                source={{
-                                    uri: 'https://soyagarden.com/content/uploads/2019/09/Soyal-Garden21721-e1568393821340.jpg',
-                                }}
-                                />
-                            </View>
-                            <View style={styles.slide1}>
-                                <Image
-                                style={styles.SlideImgList}
-                                source={{
-                                    uri: 'https://soyagarden.com/content/uploads/2020/03/3bd7b9c6e1041a5a4315.jpg',
-                                }}
-                                />
-                            </View>
-                        </Swiper>
+                        <FlatList
+                            data={DATA2}
+                            renderItem={renderNew}
+                            keyExtractor={item => item.id}
+                            horizontal={true}
+                        />
                     </View>
                 </ScrollView>
             </View>
             <View style={styles.Tabs}>
-                <Text>ádfs</Text>
+                <TouchableOpacity style={styles.TabIcon}>
+                    <AntDesign name="home" size={30} color={'#68ac44'}/>
+                    <Text style={{color: '#68ac44'}}>Trang chủ</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.TabIcon}>
+                    <Material name="storefront-outline" size={30} color={'gray'}/>
+                    <Text style={styles.Tabtxt}>Cửa hàng</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.TabIcon}>
+                    <Image
+                        source={icons.drink}
+                        resizeMode="contain"
+                        style={{
+                            width: 30,
+                            height: 30,
+                        }}
+                    />
+                    <Text style={styles.Tabtxt}>Gọi món</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.TabIcon}>
+                    <Feather name="bell" size={30} color={'gray'}/>
+                    <Text style={styles.Tabtxt}>Thông báo</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.TabIcon}>
+                    <Entypo name="dots-three-horizontal" size={30} color={'gray'}/>
+                    <Text style={styles.Tabtxt}>Khác</Text>
+                </TouchableOpacity>
             </View>
         </View>
     );
@@ -256,11 +315,12 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     Header: {
-        flex: 3,
+        flex: 2.8,
         padding: 10,
+        paddingTop: 0,
     },
     User: {
-        flex: 1.7,
+        flex: 1.5,
         flexDirection: 'row',
         padding: 10,
     },
@@ -286,7 +346,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     Options: {
-        flex: 3,
+        flex: 2.5,
         flexDirection: 'row',
         justifyContent: 'space-around',
         backgroundColor: 'white',
@@ -313,6 +373,7 @@ const styles = StyleSheet.create({
     },
     wrapper: {
         padding: 10,
+        paddingTop: 3,
         height: 200,
     },
     SlideImg: {
@@ -347,8 +408,19 @@ const styles = StyleSheet.create({
         padding: 10,
     },
     Tabs: {
-        flex: 1,
-        backgroundColor: 'green',
+        flex: 0.9,
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        borderTopWidth: 2,
+        borderTopColor: '#D8D8D8',
+    },
+    TabIcon: {
+        width: 100,
+        alignItems: 'center',
+        paddingTop: 5,
+    },
+    Tabtxt: {
+        color: 'gray',
     },
 });
 
