@@ -19,19 +19,19 @@ const DATA = [
         id: '1',
         name: 'Hot Soya Milk',
         price: '39.500 đ',
-        image: 'https://soyagarden.com/content/uploads/2020/11/DSC_9683-737x1024.jpg',
+        image: 'https://soyagarden.com/content/uploads/2019/12/28122019_SOYA1675.jpg',
     },
     {
         id: '2',
         name: 'Hot Chocolate Latte',
         price: '35.000 đ',
-        image: 'https://soyagarden.com/content/uploads/2020/11/DSC_9613-712x1024.jpg',
+        image: 'https://soyagarden.com/content/uploads/2019/12/28122019_SOYA1703-copy-683x1024.jpg',
     },
     {
         id: '3',
         name: 'Hot Black Tea',
         price: '35.000 đ',
-        image: 'https://soyagarden.com/content/uploads/2020/11/DSC_9652-664x1024.jpg',
+        image: 'https://soyagarden.com/content/uploads/2019/12/28122019_SOYA0040-683x1024.jpg',
     },
     {
         id: '4',
@@ -242,7 +242,6 @@ const Home = () => {
                     <View style={styles.List}>
                         <View style={styles.ListTitle}>
                             <Text style={styles.ListText}>Gợi ý cho bạn</Text>
-                            <Entypo style={{paddingTop: 10}} name="chevron-small-right" size={30} color="gray" />
                         </View>
                         <FlatList
                             data={DATA}
