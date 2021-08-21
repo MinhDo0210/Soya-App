@@ -44,7 +44,7 @@ const DATA = [
     },
 ];
 
-const Restaurant = () => {
+const Restaurant = ({ navigation }) => {
     const Name = ({name}) => (
         <View>
             <Text style={{fontSize: 18, fontWeight: 'bold' }}>{name}</Text>
@@ -62,7 +62,7 @@ const Restaurant = () => {
     );
     const renderItem = ({ item }) => (
         <View style={styles.Item}>
-            <View>
+            <TouchableOpacity onPress={() => navigation.navigate('DefaultRest')}>
                 <View style={{height: 170}}>
                     <Image
                         style={{
@@ -86,11 +86,11 @@ const Restaurant = () => {
                         <Phone phone={item.phone}/>
                     </View>
                 </View>
-            </View>
-            <View style={styles.Time}>
-                <Material name="clock-time-eight-outline" size={21} color={'black'}/>
-                <Text style={{fontSize: 17, paddingLeft: 4}}>08:00 - 23:00 (Đang mở cửa)</Text>
-            </View>
+                <View style={styles.Time}>
+                    <Material name="clock-time-eight-outline" size={21} color={'black'}/>
+                    <Text style={{fontSize: 17, paddingLeft: 4}}>08:00 - 23:00 (Đang mở cửa)</Text>
+                </View>
+            </TouchableOpacity>
         </View>
     );
 
@@ -111,11 +111,17 @@ const Restaurant = () => {
                 />
             </View>
             <View style={styles.Tabs}>
-                <TouchableOpacity style={styles.TabIcon}>
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('Home')}
+                    style={styles.TabIcon}
+                >
                     <AntDesign name="home" size={30} color={'gray'}/>
                     <Text style={styles.Tabtxt}>Trang chủ</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.TabIcon}>
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('Restaurant')}
+                    style={styles.TabIcon}
+                >
                     <Material name="storefront-outline" size={30} color={'#68ac44'}/>
                     <Text style={{color: '#68ac44'}}>Cửa hàng</Text>
                 </TouchableOpacity>

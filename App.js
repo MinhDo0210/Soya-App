@@ -2,12 +2,11 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import Tabs from './navigation/tabs';
-
-import { Home, Restaurant, OrderDelivery } from './screens';
-
+import { Home, Restaurant, OrderDelivery, DefaultRest } from './screens';
 const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
 const App = () => {
   return (
@@ -19,6 +18,7 @@ const App = () => {
         initialRouteName={'Home'}
       >
         <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="DefaultRest" component={DefaultRest} />
         <Stack.Screen name="Restaurant" component={Restaurant} />
         <Stack.Screen name="OrderDelivery" component={OrderDelivery} />
       </Stack.Navigator>

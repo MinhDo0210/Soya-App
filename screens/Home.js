@@ -90,7 +90,7 @@ const DATA2 = [
         },
 ];
 
-const Home = () => {
+const Home = ({ navigation }) => {
     const Name = ({ name }) => (
 		<View style={{flex: 1, width: 250}}>
 			<Text style={{ fontSize: 16, paddingLeft: 15, fontWeight: 'bold' }}>{name}</Text>
@@ -281,7 +281,10 @@ const Home = () => {
                     <AntDesign name="home" size={30} color={'#68ac44'}/>
                     <Text style={{color: '#68ac44'}}>Trang chủ</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.TabIcon}>
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('Restaurant')}
+                    style={styles.TabIcon}
+                >
                     <Material name="storefront-outline" size={30} color={'gray'}/>
                     <Text style={styles.Tabtxt}>Cửa hàng</Text>
                 </TouchableOpacity>
