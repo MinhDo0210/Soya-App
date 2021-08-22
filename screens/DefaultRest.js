@@ -10,8 +10,6 @@ import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import Material from 'react-native-vector-icons/MaterialCommunityIcons';
 import Feather from 'react-native-vector-icons/Feather';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import Entypo from 'react-native-vector-icons/Entypo';
-import AntDesign from 'react-native-vector-icons/AntDesign';
 
 const DATA = [
     {
@@ -23,7 +21,7 @@ const DATA = [
     },
 ];
 
-const Restaurant = () => {
+const Restaurant = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <View style={styles.Header}>
@@ -66,7 +64,10 @@ const Restaurant = () => {
                     <TouchableOpacity style={styles.BtnChiDuong}>
                         <Text style={styles.Txt}>chỉ đường</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.BtnDatHang}>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('OrderDelivery')}
+                        style={styles.BtnDatHang}
+                    >
                         <Text style={styles.Txt}>Đặt hàng</Text>
                     </TouchableOpacity>
                 </View>
