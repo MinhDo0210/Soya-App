@@ -61,7 +61,10 @@ const Restaurant = ({ navigation }) => {
                     </View>
                 </View>
                 <View style={styles.Btn}>
-                    <TouchableOpacity style={styles.BtnChiDuong}>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('Map')}
+                        style={styles.BtnChiDuong}
+                    >
                         <Text style={styles.Txt}>chỉ đường</Text>
                     </TouchableOpacity>
                     <TouchableOpacity

@@ -17,7 +17,8 @@ const App = () => {
         }}
         initialRouteName={'Home'}
       >
-        <Stack.Screen name="Home" component={MapScreen} />
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Map" component={MapScreen} />
         <Stack.Screen name="DefaultRest" component={DefaultRest} />
         <Stack.Screen name="Restaurant" component={Restaurant} />
         <Stack.Screen name="OrderDelivery" component={OrderDelivery} />
