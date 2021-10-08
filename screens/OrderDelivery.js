@@ -8,57 +8,6 @@ import { COLORS, images, icons, FONTS } from '../contants';
 import Entypo from 'react-native-vector-icons/Entypo';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
-// const DATA = [
-//     {
-//         id: '1',
-//         name: 'Hot Soya Milk',
-//         price: '39.500 đ',
-//         image: 'https://soyagarden.com/content/uploads/2019/12/28122019_SOYA1675.jpg',
-//     },
-//     {
-//         id: '2',
-//         name: 'Hot Chocolate Latte',
-//         price: '35.000 đ',
-//         image: 'https://soyagarden.com/content/uploads/2019/12/28122019_SOYA1703-copy-683x1024.jpg',
-//     },
-//     {
-//         id: '3',
-//         name: 'Hot Black Tea',
-//         price: '35.000 đ',
-//         image: 'https://soyagarden.com/content/uploads/2019/12/28122019_SOYA0040-683x1024.jpg',
-//     },
-//     {
-//         id: '4',
-//         name: 'Ribbed Combo Sweater',
-//         price: '35.000 đ',
-//         image: 'https://soyagarden.com/content/uploads/2019/12/28122019_SOYA4933-683x1024.jpg',
-//     },
-//     {
-//         id: '5',
-//         name: ' 40.000đ',
-//         price: '30 S-Point',
-//         image: 'https://soyagarden.com/content/uploads/2020/12/z2253425214787_26a3753be9ab7a8555d37cf0678e3b60-768x1026.jpg',
-//     },
-//     {
-//         id: '6',
-//         name: ' 30.000đ',
-//         price: '25 S-Point',
-//         image: 'https://soyagarden.com/content/uploads/2020/01/li-xi-1024x577.jpg',
-//     },
-//     {
-//         id: '7',
-//         name: ' 20.000đ',
-//         price: '20 S-Point',
-//         image: 'https://soyagarden.com/content/uploads/2019/11/9fc6e8d81f97e6c9bf86.jpg',
-//     },
-//     {
-//         id: '8',
-//         name: ' 10.000đ',
-//         price: '10 S-Point',
-//         image: 'https://soyagarden.com/content/uploads/2019/11/73504788_3195986220476346_6528997133469614080_o.jpg',
-//     },
-// ];
-
 const categoryData = [
         {
             id: 1,
